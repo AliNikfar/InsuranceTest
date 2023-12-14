@@ -1,0 +1,60 @@
+﻿
+@model  InsuranceTest.Models.Entities.DTO.CompensationRequestDTO
+
+  <head>
+  </head>
+  <body>
+    <div class="main-block">
+      <h1>نمایش اطلاعات</h1>
+      <form method="post">
+
+        <hr> 
+        <div class="request">
+             <input type="text" asp-for="@Model.Title" name="Title" id="Title"  placeholder="عنوان درخواست" />
+             <br/>
+        </div>
+        <hr>
+
+        <div>نوع پوشش بیمه </div>
+        <div class="cover-type">
+        <table>
+                <tr>
+                    <td>
+                         <label id="icon"><i class="fas fa-envelope">پوشش جراحی</i></label>
+                         <input type="number" asp-for="@Model.SurgeryFund" name="SurgeryFund" id="SurgeryFund"  placeholder="سرمایه" disabled required   />
+                    </td>
+                    <td>
+                          <label id="icon"><i class="fas fa-envelope">پوشش دندانپزشکی</i></label>
+                         <input type="number" asp-for="@Model.DentalFund"  name="DentalFund" id="DentalFund"  placeholder="سرمایه" disabled required />
+                    </td>
+                           <td>
+                          <label id="icon"><i class="fas fa-envelope">پوشش بستری</i></label>
+                         <input type="number" asp-for="@Model.HospitalizationFund"  name="HospitalizationFund" id="HospitalizationFund" placeholder="سرمایه" disabled required />
+
+                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+
+                                    </td>
+                     <td>
+                          <label id="icon"><i class="fas fa-envelope">حق بیمه خالص</i></label>
+                         <input type="number" asp-for="@Model.Fund"  name="Fund" id="Fund" placeholder="حق بیمه خالص" disabled required />
+
+                    </td>
+                    </tr>
+
+        </table>
+
+
+        </div>
+        <hr>
+
+        <div class="btn-block">
+          <button type="submit">بازگشت</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+

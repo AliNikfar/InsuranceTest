@@ -1,0 +1,59 @@
+﻿
+@model  InsuranceTest.Models.Entities.DTO.CompensationRequestDTO
+
+  <head>
+  </head>
+  <body>
+    <div class="main-block">
+      <h1>محاسبه خسارت بیمه شدگان</h1>
+      <form method="post">
+
+        <hr> 
+        <div class="request">
+             <input type="text" asp-for="@Model.Title" name="Title" id="Title"  placeholder="عنوان درخواست" />
+             <br/>
+        </div>
+        <hr>
+
+        <div>نوع پوشش بیمه </div>
+        <div class="cover-type">
+        <table>
+                <tr>
+                    <td>
+        
+                        <input  id="SurgeryCk" type="checkbox" name="SurgeryCk" asp-for="SurgeryCk" onclick = "EnableTextBox('SurgeryCk','SurgeryFund')"  />
+                         <label id="icon"><i class="fas fa-envelope">پوشش جراحی</i></label>
+                         <input type="number" name="SurgeryFund" id="SurgeryFund" max="@Model.SurgeryMaxFund" min="@Model.SurgeryMinFund" placeholder="سرمایه" disabled required   />
+                    </td>
+                    <td>
+                        <input  id="DentalCk" type="checkbox" name="DentalCk" asp-for="DentalCk" onclick = "EnableTextBox('DentalCk','DentalFund')" />
+                          <label id="icon"><i class="fas fa-envelope">پوشش دندانپزشکی</i></label>
+                         <input type="number" name="DentalFund" id="DentalFund" max="@Model.DentalMaxFund" min="@Model.DentalMinFund" placeholder="سرمایه" disabled required />
+                    </td>
+                           <td>
+                          <input  id="HospitalizationCk" type="checkbox" name="HospitalizationCk" asp-for="HospitalizationCk"   onclick = "EnableTextBox('HospitalizationCk','HospitalizationFund')" />
+                          <label id="icon"><i class="fas fa-envelope">پوشش بستری</i></label>
+                         <input type="number" name="HospitalizationFund" id="HospitalizationFund" max="@Model.HospitalizationMaxFund" min="@Model.HospitalizationMinFund" placeholder="سرمایه" disabled required />
+
+                    </td>
+                </tr>
+                <tr>
+
+                    <td></td>
+                    <td>   <p  class="red">@Html.ValidationSummary(false)</p> </td>
+                </tr>
+        </table>
+
+
+        </div>
+        <hr>
+
+        <div class="btn-block">
+          <button type="submit">محاسبه و ذخیره</button>
+        </div>
+      </form>
+    
+    </div>
+  </body>
+</html>
+
